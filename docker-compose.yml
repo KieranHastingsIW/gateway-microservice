@@ -39,13 +39,40 @@ services:
       KONG_PROXY_ERROR_LOG: "/dev/stderr"
       KONG_ADMIN_ERROR_LOG: "/dev/stderr"
       KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl"
+      KONG_PORTAL_GUI_HOST: "localhost:8003"  
     command: "kong start"
     ports:
      - "8000:8000"
      - "8002:8002"
+     - "8003:8003"
      - "8433:8433"
      - "8001:8001"
      - "8444:8444"
-networks:
-  default:
-    name: kong-net
+
+  # micro-server:
+  #   container_name: hello-world
+  #   depends_on:
+  #       - app-db
+  #   build:
+  #       context: helloworld_api
+  #       dockerfile: Dockerfile
+  #   image: helloworld_api:latest
+  #   environment:
+  #       - SPRING_DATASOURCE_URL=jdbc:postgresql://app-db:5432/compose-postgres
+  #       - SPRING_DATASOURCE_USERNAME=compose-postgres
+  #       - SPRING_DATASOURCE_PASSWORD=compose-postgres
+  #       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  #   networks:
+  #     - kong-net
+  # app-db:
+  #     image: 'postgres:13.1-alpine'
+  #     container_name: app-db
+  #     environment:
+  #         - POSTGRES_USER=compose-postgres
+  #         - POSTGRES_PASSWORD=compose-postgres
+  #     ports:
+  #         - 5432:5432
+  #     networks:
+  #       - kong-net
+
+
