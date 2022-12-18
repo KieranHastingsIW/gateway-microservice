@@ -7,4 +7,5 @@ import com.helloworldapi.helloworld_api.Entity.User;
 public interface UserService {
     List<User> getListOfUsers();
     void saveUser( User user);
+    void deleteUser(Long id);
 }
