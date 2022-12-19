@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 
 
@@ -31,7 +32,7 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @NonNull
+    @NotBlank
     @Column(name = "age", nullable = false)
     private int age;
 

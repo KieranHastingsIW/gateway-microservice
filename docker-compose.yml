@@ -74,11 +74,19 @@ services:
           - 5432:5432
       # networks:
       #     - spring-cloud-network
-
+  # deck:
+  #       image: 'kong/deck:latest'
+  #       container_name: deck
+        # environment:
+        #     - POSTGRES_USER=compose-postgres
+        #     - POSTGRES_PASSWORD=compose-postgres
+        # ports:
+        #     - 5432:5432
+        # networks:
+        #     - spring-cloud-network
 networks:
   # spring-cloud-network:
   #     driver: bridge
   default:
     name: kong-net
-
 
