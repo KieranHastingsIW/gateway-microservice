@@ -33,4 +33,10 @@ public class UserServiceImpl implements UserService{
         
     }
 
+    // @Override
+    // public void updateUser(long id) {
+    //     userRepository.update(userRepository.findById(null));
+        
+    // }
+
 }

@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 @Setter
 @Getter
 @Entity
-@Table(name = "user")
+@Table(name = "users_tableage")
 public class User {
 
     @Id
