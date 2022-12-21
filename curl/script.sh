@@ -1,5 +1,4 @@
 #!/bin/sh
-echo hello world
 curl -i -X GET \
         --url http://kong:8001/
 status=$?

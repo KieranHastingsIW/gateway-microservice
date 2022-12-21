@@ -3,7 +3,7 @@ services:
   curl:
     container_name: curl
     build:
-      context: .
+      context: curl
       dockerfile: Dockerfile
     image: curl
   postgres:
