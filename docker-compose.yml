@@ -1,5 +1,11 @@
 version: '3.9'
 services:
+  curl:
+    container_name: curl
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: curl
   postgres:
     image: postgres:9.6-alpine
     restart: always 
@@ -60,6 +66,7 @@ services:
           - SPRING_DATASOURCE_USERNAME=compose-postgres
           - SPRING_DATASOURCE_PASSWORD=compose-postgres
           - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
   db:
       image: 'postgres:13.1-alpine'
       container_name: db
