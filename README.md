@@ -16,7 +16,7 @@ TESTING in Postman
 * Run the AddNewUser request, there should be no response, and a status code of 201 CREATED.
 * Run the GetAllUsers request again to confirm the users was added to the data base take note of the ID.
 * Run the UpdateUserById request using the id shown in the GetAllUsers output in the id path variable, add the updated information to the raw JSON body of the request, this should only return a 200 OK status code  
-* Run the GetAllUsers request again to confirm the user’s information was updated.
+* Run the GetUser request with the id if the User that you were updating to view the updated details. This should also return a 200 OK status code. 
 * Run the DeleteUserByID request with the id of the user you just updated in the value column in path variables, there should be no response and a status code of 204 NO CONTENT.
 * To confirm the user has been deleted run the GetAllUsers, the list should once again be empty 
 
