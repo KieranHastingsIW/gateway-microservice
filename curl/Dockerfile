@@ -1,8 +1,8 @@
 FROM curlimages/curl:latest
-USER root
-COPY script.sh /temp/script.sh
-RUN chmod +x /temp/script.sh
-USER 1001
-ENTRYPOINT ["/temp/script.sh"]
+COPY script.sh /tmp/script.sh
 
+USER root
+RUN chmod +x tmp/script.sh
+USER 1001
+ENTRYPOINT ["/tmp/script.sh"]
 
