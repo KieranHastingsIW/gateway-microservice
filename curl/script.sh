@@ -51,3 +51,12 @@ curl -i -X POST \
     -H "Content-Type: application/json" \
     -d '{"name": "update", "methods":["PUT"], "hosts":["localhost"], "paths":["/update"],"headers":{"Content-Type":["application/json"]}}'
     
+
+curl -i -X POST \
+--url http://kong:8001/services/ \
+--data name=GetUser \
+--data 'url=http://hello-world:8080/user'
+curl -i -X POST \
+--url http://kong:8001/services/GetUser/routes/ \
+    -H "Content-Type: application/json" \
+    -d '{"name": "user", "methods":["GET"], "hosts":["localhost"], "paths":["/user"]}'

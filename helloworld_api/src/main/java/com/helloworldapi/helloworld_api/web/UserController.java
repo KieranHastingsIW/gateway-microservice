@@ -32,6 +32,11 @@ public class UserController {
         return new ResponseEntity<>(userService.getListOfUsers(), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{id}")
+    public ResponseEntity<User> getUser(@PathVariable Long id) throws Exception{
+        return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+    }
+
     @PostMapping("/create")
     public ResponseEntity<HttpStatus> saveUser(@Valid @RequestBody User user) {
         userService.saveUser(user);
