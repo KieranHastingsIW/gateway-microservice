@@ -9,7 +9,8 @@ do
     echo ${status}
        curl -i -X GET --url http://kong:8001/
     status=$?
-done   
+done  
+
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=GetAllUsers \
