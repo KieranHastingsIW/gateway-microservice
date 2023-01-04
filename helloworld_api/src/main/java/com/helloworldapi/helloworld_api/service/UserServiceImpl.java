@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService{
         return userRepository.findAll();
     }
 
+
+
     @Override
     public void saveUser(User user) {
         userRepository.save(user);
@@ -56,4 +58,17 @@ public class UserServiceImpl implements UserService{
         unwrappedUser.setGender(user.getGender());
         return unwrappedUser;
     }
+
+
+
+    @Override
+    public User getUser(Long id) throws Exception{
+        Optional<User> optUser = userRepository.findById(id);
+        if (optUser.isPresent()) {
+            User unwrappedUser = optUser.get();
+            return unwrappedUser;
+         } else {
+            throw new Exception("user not found");
+         }
+        }
 }
