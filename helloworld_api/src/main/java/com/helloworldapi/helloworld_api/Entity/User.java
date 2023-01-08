@@ -17,7 +17,7 @@ import jakarta.validation.constraints.NotBlank;
 @Setter
 @Getter
 @Entity
-@Table(name = "users_tableage")
+@Table(name = "users_table")
 public class User {
 
     @Id
