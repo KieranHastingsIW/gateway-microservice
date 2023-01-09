@@ -6,7 +6,7 @@ This repository contains a docker compose file at when run will create a micro s
 * In CMD run the command `docker-compose up --build`, this will take around 4 minutes to run.
 * To see that all containers are running in the Docker desktop window navigate to the containers section. the running containers should include:
     - hello-world
-    - kong: with ports 8000, 8001, 8001, 8433, and 8444 exposed.
+    - kong: with ports 8000, 8001, 8002, 8433, and 8444 exposed.
     - kong-database 
     - db
 
