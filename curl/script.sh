@@ -7,7 +7,7 @@ while [ ${status} -ne 0 ]
 do
     sleep 1
     echo ${status}
-       curl -i -X GET --url http://kong:8001/
+    curl -i -X GET --url http://kong:8001/
     status=$?
 done  
 
