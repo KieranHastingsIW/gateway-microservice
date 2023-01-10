@@ -30,6 +30,7 @@ This repository contains a docker compose file that when run will create a micro
 * In CMD run the command `docker exec -it db psql -U compose-postgres`.
 * This will put you inside a terminal of the db container and run the psql command line tool. 
 * Run the `SELECT * FROM users_table;` query, the output should be a 5 column by 0 row table with all attributes of the user model as the headers for the columns.
+* Exit the psql terminal by typing `\q` and pressing enter.
 
 ### Populate the base.
 * Run the command `docker exec -it db psql -U compose-postgres -d compose-postgres -f /tmp/init.sql`
