@@ -2,6 +2,10 @@
 This repository contains a docker compose file that when run will create a micro service that is connected to a postgres database and will be accessible through a Kong gateway.
 
 * To deploy the application behind the Kong gateway clone this repository into the directory of your choosing.
+*  Clone repository into directory of choice.
+    - Before building the appicalion open the docker compose file and change the username and password in the db environment section to a username and password of your choice. Also update the username, password, and source url in the server enviroment to match those of the db enviroments. 
+    <!-- - Repeate the above with the default email and password in the pgAdmin enviroment section. -->
+    - Comments for where to make these changes can be found in the docker-compose.yml file. 
 * Ensure that Docker desktop is running on your device. 
 * In CMD run the command `docker-compose up --build`, this will take around 4 minutes to run.
 * To see that all containers are running in the Docker desktop window navigate to the containers section. The running containers should include:

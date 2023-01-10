@@ -69,10 +69,10 @@ services:
           dockerfile: Dockerfile
       image: helloworld_api:latest
       environment:
-          - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
-          - SPRING_DATASOURCE_USERNAME=compose-postgres
-          - SPRING_DATASOURCE_PASSWORD=compose-postgres
-          - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+        - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/DB-USERNAME    ### replace the DB-USERNAME with your desired USERNAME      
+        - SPRING_DATASOURCE_USERNAME=DB-USERNAME                         ### replace the DB-USERNAME with your desired USERNAME
+        - SPRING_DATASOURCE_PASSWORD=DB-PASSWORD                         ### replace the DB-PASSWORD with your desired PASSWORD
+        - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       # ports:
       #   - 8080:8080
 
@@ -80,24 +80,24 @@ services:
       image: 'postgres:13.1-alpine'
       container_name: db
       environment:
-          - POSTGRES_USER=compose-postgres
-          - POSTGRES_PASSWORD=compose-postgres
+          - POSTGRES_USER=DB-USERNAME                                     ### replace the DB-USERNAME with your desired USERNAME
+          - POSTGRES_PASSWORD=DB-PASSWORD                                 ### replace the DB-PASSWORD with your desired PASSWORD
       volumes:
         - "./init.sql:/tmp/init.sql"
 
       # ports:
       #     - 5432:5432
-  pgadmin:
-      container_name: pgadmin4_container
-      depends_on:
-          - server
-      image: dpage/pgadmin4
+  # pgadmin:
+  #     container_name: pgadmin4_container
+  #     depends_on:
+  #         - server
+  #     image: dpage/pgadmin4
 
-      environment:
-          - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-          - PGADMIN_DEFAULT_PASSWORD=root
-      ports:
-          - "5050:80"
+  #     environment:
+  #         - PGADMIN_DEFAULT_EMAIL=PGADMIN-EMA                             ### replace the PGADMIN-EMAIL with your desired EMAIL
+  #         - PGADMIN_DEFAULT_PASSWORD=PGADMIN-PASSWORD                     ### replace the PGADMIN-PASSWORD with your desired PASSWORD
+  #     ports:
+  #         - "5050:80"
 
 networks:
   default:
