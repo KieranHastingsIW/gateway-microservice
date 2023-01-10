@@ -100,7 +100,6 @@ services:
           - "5050:80"
 
 networks:
-
   default:
     name: kong-net
 

@@ -1,19 +1,26 @@
 # gateway-microservice
-This repository contains a docker compose file at when run will create a micro service that is connected to a postgres database and will be accessible through a Kong gateway.
+This repository contains a docker compose file that when run will create a micro service that is connected to a postgres database and will be accessible through a Kong gateway.
 
 * To deploy the application behind the Kong gateway clone this repository into the directory of your choosing.
 * Ensure that Docker desktop is running on your device. 
 * In CMD run the command `docker-compose up --build`, this will take around 4 minutes to run.
-* To see that all containers are running in the Docker desktop window navigate to the containers section. the running containers should include:
+* To see that all containers are running in the Docker desktop window navigate to the containers section. The running containers should include:
     - hello-world
+        * The container that builds and hosts the API
     - kong: with ports 8000, 8001, 8002, 8433, and 8444 exposed.
-    - kong-database 
+        * the container that hosts the Kong gateway, having the manager on port 8002.
+    - kong-database
+        * The container hosting the database that stores the configuration of services and routes for the kong gateway.
     - db
+        * The container that hosts the postgres database for our API, where users are stored in the users_table.
 
 Setting up API services and routes.
 * In a new CMD window cd into the curl folder and run the `docker-compose up --build` command.
 * If the container exits with code 0 the services and routes have been created successfully.
 * To further test this, we can go to `localhost:8002` to access the kong gateway manager here we could see 5 services each with their own route. 
+
+Cleaning up docker containers
+* To remove now unused docker container (this being the curl and kong bootstrap containers) we can use the command `docker containers prune -f` to remove them.
 
 Confirming the database is set up correctly.
 * In CMD run the command `docker exec -it db psql -U compose-postgres`.
@@ -22,7 +29,7 @@ Confirming the database is set up correctly.
 
 Populate the base.
 * Run the command `docker exec -it db psql -U compose-postgres -d compose-postgres -f /tmp/init.sql`
-* This command populates the database with 1000 unique rows.
+* This command populates the database with 1000 unique rows each representing a different user.
 
 TESTING in Postman
 * Import the JSON file named `postman-test.postman_collection.json` into Postman 
