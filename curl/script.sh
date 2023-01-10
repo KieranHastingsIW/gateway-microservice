@@ -11,6 +11,7 @@ do
     status=$?
 done  
 
+
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=GetAllUsers \
