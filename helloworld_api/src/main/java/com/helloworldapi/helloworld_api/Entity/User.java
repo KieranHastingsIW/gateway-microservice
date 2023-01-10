@@ -32,11 +32,10 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "age", nullable = false)
-    private int age;
-
     @NonNull
     @Column(name = "gender", nullable = false)
     private String gender;
-    
+
+    @Column(name = "age", nullable = false)
+    private int age;    
 }

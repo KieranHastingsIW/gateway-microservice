@@ -83,7 +83,7 @@ services:
           - POSTGRES_USER=DB-USERNAME                                     ### replace the DB-USERNAME with your desired USERNAME
           - POSTGRES_PASSWORD=DB-PASSWORD                                 ### replace the DB-PASSWORD with your desired PASSWORD
       volumes:
-        - "./init.sql:/tmp/init.sql"
+        - "./users_table.sql:/docker-entrypoint-initdb.d/users_table.sql"
 
       # ports:
       #     - 5432:5432
