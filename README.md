@@ -24,16 +24,16 @@ This repository contains a docker compose file that when run will create a micro
 * To further test this, we can go to `localhost:8002` to access the kong gateway manager here we could see 5 services each with their own route. 
 
 ### Cleaning up docker containers
-* To remove now unused docker container (this being the curl and kong bootstrap containers) we can use the command `docker containers prune -f` to remove them.
+* To remove now unused docker container (this being the curl and kong bootstrap containers) we can use the command `docker container prune -f` to remove them.
 
 ### Confirming the database is set up correctly.
-* In CMD run the command `docker exec -it db psql -U compose-postgres`.
+* In CMD run the command `docker exec -it db psql -U {USERNAME YOU SET IN FIRST STEP}`.
 * This will put you inside a terminal of the db container and run the psql command line tool. 
 * Run the `SELECT * FROM users_table;` query, the output should be a 5 column by 0 row table with all attributes of the user model as the headers for the columns.
 * Exit the psql terminal by typing `\q` and pressing enter.
 
 ### Populate the base.
-* Run the command `docker exec -it db psql -U compose-postgres -d compose-postgres -f /tmp/init.sql`
+* Run the command `docker exec -it db psql -U {USERNAME SET IN FIRST STEP} -d {USERNAME SET IN FIRST STEP} -f /tmp/init.sql`
 * This command populates the database with 1000 unique rows each representing a different user.
 
 ### Testing in Postman
