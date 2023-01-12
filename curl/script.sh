@@ -15,42 +15,42 @@ done
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=GetAllUsers \
---data 'url=http://hello-world:8080/list'
+--data 'url=http://hello-world:8080/user/users'
 curl -i -X POST \
 --url http://kong:8001/services/GetAllUsers/routes/ \
     -H "Content-Type: application/json" \
-    -d '{"name": "allUsers", "methods":["GET"], "hosts":["localhost"], "paths":["/all"]}'
+    -d '{"name": "allUsers", "methods":["GET"], "hosts":["localhost"], "paths":["/users"]}'
 
 
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=CreateUser \
---data 'url=http://hello-world:8080/create'
+--data 'url=http://hello-world:8080/user/create'
 curl -i -X POST \
 --url http://kong:8001/services/CreateUser/routes/ \
     -H "Content-Type: application/json" \
-    -d '{"name": "create", "methods":["POST"], "hosts":["localhost"], "paths":["/create"],"headers":{"Content-Type":["application/json"]}}'
+    -d '{"name": "create", "methods":["POST"], "hosts":["localhost"], "paths":["/user"],"headers":{"Content-Type":["application/json"]}}'
 
 
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=DeleteUser \
---data 'url=http://hello-world:8080/delete'
+--data 'url=http://hello-world:8080/user/delete'
 curl -i -X POST \
 --url http://kong:8001/services/DeleteUser/routes/ \
     -H "Content-Type: application/json" \
-    -d '{"name": "delete", "methods":["DELETE"], "hosts":["localhost"], "paths":["/delete"]}'
+    -d '{"name": "delete", "methods":["DELETE"], "hosts":["localhost"], "paths":["/user"]}'
 
 
 
 curl -i -X POST \
 --url http://kong:8001/services/ \
 --data name=UpdateUser \
---data 'url=http://hello-world:8080/update'
+--data 'url=http://hello-world:8080/user/update'
 curl -i -X POST \
 --url http://kong:8001/services/UpdateUser/routes/ \
     -H "Content-Type: application/json" \
-    -d '{"name": "update", "methods":["PUT"], "hosts":["localhost"], "paths":["/update"],"headers":{"Content-Type":["application/json"]}}'
+    -d '{"name": "update", "methods":["PUT"], "hosts":["localhost"], "paths":["/user"],"headers":{"Content-Type":["application/json"]}}'
     
 
 curl -i -X POST \

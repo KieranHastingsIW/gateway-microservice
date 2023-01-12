@@ -37,7 +37,7 @@ This repository contains a docker compose file that when run will create a micro
 * This command populates the database with 1000 unique rows each representing a different user.
 
 ### Testing in Postman
-* Import the JSON file named `postman-test.postman_collection.json` into Postman 
+* Import the JSON file named `microservice-on-kong-tests.postman_collection.json` into Postman 
 * Run the GetAllUsers request, the response should be a list of 1000 users in JSON format, with a status code of 200 OK.
 * Run the AddNewUser request, there should be no response, and a status code of 201 CREATED.
 * Run the UpdateUserById request using an id in the range of 1-1000 and add the updated information to the raw JSON body of the request, this should only return a 200 OK status code  

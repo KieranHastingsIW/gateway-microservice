@@ -22,17 +22,17 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping
+@RequestMapping("/user")
 public class UserController {
     
     UserService userService;
     
-    @GetMapping("/list")
+    @GetMapping("/users")
     public ResponseEntity<List<User>> getUsers(){
         return new ResponseEntity<>(userService.getListOfUsers(), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> getUser(@PathVariable Long id) throws Exception{
         return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
     }
