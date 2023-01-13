@@ -21,13 +21,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8000/create",
+					"raw": "localhost:8000/user",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"create"
+						"user"
 					]
 				}
 			},
@@ -39,13 +39,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/all",
+					"raw": "localhost:8000/users",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"all"
+						"users"
 					]
 				}
 			},
@@ -66,13 +66,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8000/delete/1",
+					"raw": "localhost:8000/user/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"delete",
+						"user",
 						"1"
 					]
 				}
@@ -94,13 +94,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8000/update/:id",
+					"raw": "localhost:8000/user/:id",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"update",
+						"user",
 						":id"
 					],
 					"variable": [
@@ -119,14 +119,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/user/1",
+					"raw": "localhost:8000/user/3",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"user",
-						"1"
+						"3"
 					]
 				}
 			},
