@@ -40,8 +40,8 @@ services:
     restart: always 
     hostname: kong
     container_name: kong
-    depends_on:
-      - kong-bootstrap
+    # depends_on:
+    #   - kong-bootstrap
     environment:
       KONG_DATABASE: "postgres"
       KONG_PG_HOST: "kong-database"
@@ -84,6 +84,7 @@ services:
           - POSTGRES_PASSWORD=DB-PASSWORD                                 ### replace the DB-PASSWORD with your desired PASSWORD
       volumes:
         - "./init.sql:/tmp/init.sql"
+        - "./database:/var/lib/postgresql/data"
 
       # ports:
       #     - 5432:5432
