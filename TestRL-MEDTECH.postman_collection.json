@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "e21c8a20-0927-417d-a12b-7fc940e3fd95",
+		"name": "TestRL-MEDTECH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24824282"
+	},
+	"item": [
+		{
+			"name": "Get Locator by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/rls/c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"rls",
+						"c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
