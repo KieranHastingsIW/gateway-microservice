@@ -1,61 +1,14 @@
 version: '3.9'
 
 services:  
-  # postgres:
-  #   image: postgres:9.6-alpine
-  #   restart: always 
-  #   hostname: kong-database
-  #   container_name: kong-database
-  #   environment:
-  #     POSTGRES_USER: "kong"
-  #     POSTGRES_DB: "kong"
-  #     POSTGRES_PASSWORD: "kong"
-  # kong-bootstrap:
-  #   image: kong/kong-gateway:latest
-  #   hostname: kong-bootstrap
-  #   container_name: kong-bootstrap
-  #   depends_on:
-  #     - postgres
-  #   environment:
-  #     KONG_DATABASE: "postgres"
-  #     KONG_PG_HOST: "kong-database"
-  #     KONG_PG_USER: "kong"
-  #     KONG_PG_PASSWORD: "kong"
-  #   command: "kong migrations bootstrap"
-  #   restart: "on-failure"
-  # kong:
-  #   image: kong/kong-gateway:latest
-  #   restart: always 
-  #   hostname: kong
-  #   container_name: kong
-  #   # depends_on:
-  #   #   - kong-bootstrap
-  #   environment:
-  #     KONG_DATABASE: "postgres"
-  #     KONG_PG_HOST: "kong-database"
-  #     KONG_PG_USER: "kong"
-  #     KONG_PG_PASSWORD: "kong"
-  #     KONG_PROXY_ACCESS_LOG: "/dev/stdout"
-  #     KONG_ADMIN_ACCESS_LOG: "/dev/stdout"
-  #     KONG_PROXY_ERROR_LOG: "/dev/stderr"
-  #     KONG_ADMIN_ERROR_LOG: "/dev/stderr"
-  #     KONG_ADMIN_LISTEN: "0.0.0.0:8001, 0.0.0.0:8444 ssl" 
-  #   command: "kong start"
-  #   ports:
-  #    - "8000:8000"
-  #    - "8002:8002"
-  #    - "8433:8433"
-  #    - "8001:8001"
-  #    - "8444:8444"
-
   server:
-      container_name: hello-world
+      container_name: fhir
       depends_on:
           - db
       build:
-          context: helloworld_api
+          context: FHIR
           dockerfile: Dockerfile
-      image: helloworld_api:latest
+      image: fhir-container:latest
       environment:
         - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/dbuser    
         - SPRING_DATASOURCE_USERNAME=dbuser
@@ -73,21 +26,6 @@ services:
       volumes:
         - "./init.sql:/tmp/init.sql"
         - "./database:/var/lib/postgresql/data"
-
-      # ports:
-      #     - 5432:5432
-  # pgadmin:
-  #     container_name: pgadmin4_container
-  #     depends_on:
-  #         - server
-  #     image: dpage/pgadmin4
-
-  #     environment:
-  #         - PGADMIN_DEFAULT_EMAIL=PGADMIN-EMA                             ### replace the PGADMIN-EMAIL with your desired EMAIL
-  #         - PGADMIN_DEFAULT_PASSWORD=PGADMIN-PASSWORD                     ### replace the PGADMIN-PASSWORD with your desired PASSWORD
-  #     ports:
-  #         - "5050:80"
-
 networks:
   default:
     name: kong-net
